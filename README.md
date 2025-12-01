@@ -26,4 +26,3 @@ npm run build
 
 - Welcome screen with personalized city walk guide introduction
 - Built with React and Tailwind CSS# PittsburghLocalGuide
-# PittsburghLocalGuide
