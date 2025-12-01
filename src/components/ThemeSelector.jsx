@@ -12,10 +12,10 @@ const imgCta = "https://www.figma.com/api/mcp/asset/b1cd47d4-3aae-489c-a8d3-0ad6
 const themes = [
   { id: 'artsy', name: 'Artsy', image: imgRectangle2 },
   { id: 'architecture', name: 'Architecture', image: imgRectangle3 },
-  { id: 'coffee', name: 'Coffee', image: imgRectangle7 },
-  { id: 'foodie', name: 'Foodie', image: imgRectangle4 },
-  { id: 'night-view', name: 'Night view', image: imgRectangle5 },
-  { id: 'not-sure', name: 'Not sure?', image: imgRectangle6 },
+  { id: 'coffee', name: 'Coffee', image: imgRectangle4 },
+  { id: 'foodie', name: 'Foodie', image: imgRectangle5 },
+  { id: 'night-view', name: 'Night view', image: imgRectangle6 },
+  { id: 'not-sure', name: 'Not sure?', image: imgRectangle7 },
 ];
 
 export default function ThemeSelector({ onThemeSelected, onNext, onBack }) {
