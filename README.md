@@ -1,7 +1,7 @@
 # SSUI Final Project - Pittsburgh City Walk Guide
 
 A React application for personalized city walk guides in Pittsburgh.
-Click [here](https://vercel.com/huimenglus-projects/pittsburgh-local-guide-new) for a live demo!
+Click [here](https://pittsburgh-local-guide-new.vercel.app/) for a live demo!
 
 ## Getting Started
 
