@@ -140,19 +140,19 @@ export default function MoodSelector({ onMoodSelected, onNext, onBack }) {
   }, [moodLabel, displayMoodLabel, isTransitioning]);
 
   return (
-    <div className="bg-[#f2f2f2] relative size-full overflow-hidden" data-name="Mood Selector" data-node-id="14:77">
-      <div className="absolute content-stretch flex flex-col gap-[clamp(24px,4vh,36px)] items-center justify-center left-0 right-0 top-0 bottom-0 px-[18px] py-[clamp(20px,3vh,40px)]" data-node-id="38:1301">
-        <div className="content-stretch flex flex-col gap-[clamp(20px,3vh,36px)] items-center relative shrink-0 w-full" data-node-id="17:75">
-          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] min-w-full not-italic relative shrink-0 text-[#4a4a4a] text-[clamp(20px,4vw,24px)] text-center w-[min-content] whitespace-pre-wrap" data-node-id="14:86">
+    <div className="bg-[#f2f2f2] relative size-full overflow-y-auto" data-name="Mood Selector" data-node-id="14:77">
+      <div className="absolute content-stretch flex flex-col gap-[72px] items-center left-0 right-0 top-[64px] pb-[20px]" data-node-id="38:1301">
+        <div className="content-stretch flex flex-col gap-[36px] items-center relative shrink-0 w-full" data-node-id="17:75">
+          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] min-w-full not-italic relative shrink-0 text-[#4a4a4a] text-[24px] text-center w-[min-content] whitespace-pre-wrap" data-node-id="14:86">
             How are you feeling?
           </p>
-          <div className="content-stretch flex flex-col gap-[clamp(8px,1.5vh,12px)] items-center relative shrink-0" data-name="emotion" data-node-id="14:176">
-            <div className="relative shrink-0 w-[clamp(120px,25vw,186px)] h-[clamp(120px,25vw,186px)] max-w-[186px] max-h-[186px] aspect-square" data-name="emotional indicator" data-node-id="14:175">
+          <div className="content-stretch flex flex-col gap-[12px] h-[217px] items-center relative shrink-0 w-[186px]" data-name="emotion" data-node-id="14:176">
+            <div className="relative shrink-0 size-[186px]" data-name="emotional indicator" data-node-id="14:175">
               {/* New emotion (fading in) - behind old one */}
               {isTransitioning && (
                 <img 
                   alt="" 
-                  className="block max-w-none w-full h-full object-contain absolute inset-0 transition-opacity duration-300 ease-in-out"
+                  className="block max-w-none size-full absolute inset-0 transition-opacity duration-300 ease-in-out"
                   style={{ opacity: 1 }}
                   src={emotionalIndicators[moodLabel]} 
                 />
@@ -160,40 +160,40 @@ export default function MoodSelector({ onMoodSelected, onNext, onBack }) {
               {/* Current/Previous emotion (fading out) - on top */}
               <img 
                 alt="" 
-                className="block max-w-none w-full h-full object-contain transition-opacity duration-300 ease-in-out"
+                className="block max-w-none size-full transition-opacity duration-300 ease-in-out"
                 style={{ 
                   opacity: isTransitioning ? 0 : 1
                 }}
                 src={emotionalIndicators[displayMoodLabel]} 
               />
             </div>
-            <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full not-italic relative shrink-0 text-[#4a4a4a] text-[clamp(14px,3.5vw,16px)] text-center w-[min-content] whitespace-pre-wrap transition-opacity duration-300" data-node-id="14:104">
+            <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full not-italic relative shrink-0 text-[#4a4a4a] text-[16px] text-center w-[min-content] whitespace-pre-wrap transition-opacity duration-300" data-node-id="14:104">
               {moodLabel}
             </p>
           </div>
-          <div className="relative w-full max-w-[clamp(280px,85vw,359px)] flex justify-center" data-name="emotional selector" data-node-id="14:185">
-            <div className="relative w-full max-w-[clamp(250px,78vw,313px)] aspect-square" data-name="emotional coordinates" data-node-id="14:184">
+          <div className="relative w-full max-w-[359px] flex justify-center" data-name="emotional selector" data-node-id="14:185">
+            <div className="relative w-full max-w-[313px] aspect-square" data-name="emotional coordinates" data-node-id="14:184">
               {/* Axis labels */}
-              <div className="absolute top-[-clamp(16px,3vw,24px)] left-1/2 -translate-x-1/2">
-                <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic text-[#a1a1a1] text-[clamp(10px,2.5vw,12px)] text-center uppercase" data-node-id="14:101">
+              <div className="absolute top-[-24px] left-1/2 -translate-x-1/2">
+                <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic text-[#a1a1a1] text-[12px] text-center uppercase" data-node-id="14:101">
                   High energy
                 </p>
               </div>
-              <div className="absolute bottom-[-clamp(16px,3vw,24px)] left-1/2 -translate-x-1/2">
-                <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic text-[#a1a1a1] text-[clamp(10px,2.5vw,12px)] text-center uppercase" data-node-id="14:102">
+              <div className="absolute bottom-[-24px] left-1/2 -translate-x-1/2">
+                <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic text-[#a1a1a1] text-[12px] text-center uppercase" data-node-id="14:102">
                   Low energy
                 </p>
               </div>
-              <div className="absolute left-[-clamp(40px,12vw,60px)] top-1/2 -translate-y-1/2">
+              <div className="absolute left-[-60px] top-1/2 -translate-y-1/2">
                 <div className="flex-none rotate-[270deg]">
-                  <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic text-[#a1a1a1] text-[clamp(10px,2.5vw,12px)] text-center uppercase" data-node-id="14:90">
+                  <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic text-[#a1a1a1] text-[12px] text-center uppercase" data-node-id="14:90">
                     Unpleasant
                   </p>
                 </div>
               </div>
-              <div className="absolute right-[-clamp(40px,12vw,60px)] top-1/2 -translate-y-1/2">
+              <div className="absolute right-[-60px] top-1/2 -translate-y-1/2">
                 <div className="flex-none rotate-[90deg]">
-                  <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic text-[#a1a1a1] text-[clamp(10px,2.5vw,12px)] text-center uppercase" data-node-id="14:89">
+                  <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] not-italic text-[#a1a1a1] text-[12px] text-center uppercase" data-node-id="14:89">
                     Pleasant
                   </p>
                 </div>
@@ -224,7 +224,7 @@ export default function MoodSelector({ onMoodSelected, onNext, onBack }) {
 
                 {/* Selector cursor */}
                 <div 
-                  className="absolute w-[clamp(24px,6vw,36px)] h-[clamp(24px,6vw,36px)] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                  className="absolute size-[36px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                   style={{
                     left: `${cursorX}%`,
                     top: `${cursorY}%`,
