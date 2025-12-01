@@ -83,11 +83,11 @@ function normalizeDuration(duration) {
  * @returns {Array} Array of Place objects representing the recommended route
  */
 export function generateRoute({ mood, theme, duration }) {
-  // 1. Map mood to arousal level
+  // Map mood to arousal level
   // mood.y < 0.5 → 'calm', mood.y >= 0.5 → 'energetic'
   const moodArousal = mood.y < 0.5 ? 'calm' : 'energetic';
   
-  // 2. Normalize and map duration to number of places
+  // Normalize and map duration to number of places
   const normalizedDuration = normalizeDuration(duration);
   const durationToCount = {
     '30min': 1,
@@ -99,31 +99,31 @@ export function generateRoute({ mood, theme, duration }) {
   };
   const targetCount = durationToCount[normalizedDuration] || 3;
   
-  // 3. Filter places by theme and moodArousal (first priority)
+  // Filter places by theme and moodArousal (first priority)
   let candidates = PLACES.filter(place => {
     const matchesTheme = place.themes.includes(theme);
     const matchesMood = place.moodArousal === moodArousal;
     return matchesTheme && matchesMood;
   });
   
-  // 4. If not enough candidates, relax to theme only
+  // If not enough candidates, relax to theme only
   if (candidates.length < targetCount) {
     candidates = PLACES.filter(place => place.themes.includes(theme));
   }
   
-  // 5. If still not enough, use all places (fallback)
+  // If still not enough, use all places (fallback)
   if (candidates.length < targetCount) {
     candidates = [...PLACES];
   }
   
-  // 6. Shuffle candidates array (Fisher-Yates shuffle for better randomness)
+  // Shuffle candidates array (Fisher-Yates shuffle for better randomness)
   const shuffled = [...candidates];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   
-  // 7. Take first N places as the route
+  // Take first N places as the route
   const route = shuffled.slice(0, targetCount);
   
   return route;
@@ -142,10 +142,10 @@ export function refreshOnePlace({ oldPlace, mood, theme, currentRoute }) {
   // Map mood to arousal level
   const moodArousal = mood.y < 0.5 ? 'calm' : 'energetic';
   
-  // Get oldPlace's themes (it's an array)
+  // Get oldPlace's themes
   const oldPlaceThemes = oldPlace.themes || [];
   
-  // Get IDs of places already in current route (to exclude them)
+  // Get IDs of places already in current route
   const existingIds = currentRoute.map(place => place.id);
   
   // Filter candidates with strict rules:
