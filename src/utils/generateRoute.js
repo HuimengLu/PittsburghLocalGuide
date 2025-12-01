@@ -139,19 +139,19 @@ export function generateRoute({ mood, theme, duration }) {
  * @returns {Object|null} New Place object, or null if no suitable replacement found
  */
 export function refreshOnePlace({ oldPlace, mood, theme, currentRoute }) {
-  // 1. Map mood to arousal level
+  // Map mood to arousal level
   const moodArousal = mood.y < 0.5 ? 'calm' : 'energetic';
   
-  // 2. Get oldPlace's themes (it's an array)
+  // Get oldPlace's themes (it's an array)
   const oldPlaceThemes = oldPlace.themes || [];
   
-  // 3. Get IDs of places already in current route (to exclude them)
+  // Get IDs of places already in current route (to exclude them)
   const existingIds = currentRoute.map(place => place.id);
   
-  // 4. Filter candidates with strict rules:
-  //    - Must have at least one theme matching oldPlace's themes
-  //    - Must match moodArousal
-  //    - Must not be in currentRoute
+  // Filter candidates with strict rules:
+  // Must have at least one theme matching oldPlace's themes
+  // Must match moodArousal
+  // Must not be in currentRoute
   let candidates = PLACES.filter(place => {
     // Check if place has any theme matching oldPlace's themes
     const hasMatchingTheme = oldPlaceThemes.some(theme => place.themes.includes(theme));
@@ -162,7 +162,7 @@ export function refreshOnePlace({ oldPlace, mood, theme, currentRoute }) {
     return hasMatchingTheme && matchesMood && notInRoute && notOldPlace;
   });
   
-  // 5. If no candidates with strict rules, relax to theme only
+  // If no candidates with strict rules, relax to theme only
   if (candidates.length === 0) {
     candidates = PLACES.filter(place => {
       const hasMatchingTheme = oldPlaceThemes.some(theme => place.themes.includes(theme));
@@ -173,12 +173,12 @@ export function refreshOnePlace({ oldPlace, mood, theme, currentRoute }) {
     });
   }
   
-  // 6. If still no candidates, return null
+  // If still no candidates, return null
   if (candidates.length === 0) {
     return null;
   }
   
-  // 7. Randomly select one candidate
+  // Randomly select one candidate
   const randomIndex = Math.floor(Math.random() * candidates.length);
   const newPlace = candidates[randomIndex];
   
